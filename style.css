@@ -6,7 +6,6 @@
 
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
-  background-color: #242424;
 
   font-synthesis: none;
   text-rendering: optimizeLegibility;
@@ -20,10 +19,59 @@
   box-sizing: border-box;
 }
 
+@media (prefers-color-scheme: light) {
+  body {
+	  color: rgba(0, 0, 0, 0.87);
+		background-color: #efefef;
+	}
+
+  button {
+    background-color: transparent;
+    border: 2px solid rgba(10, 10, 10, 0.267);
+    border-radius: .4em;
+    width: calc(min(100%, 540px) - 2 * var(--body-padding));
+    display: block;
+    margin-inline: auto;
+    padding: 1em 2em;
+    font-weight: 600;
+    transition: all 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(200,200,200, 0.3);
+    }
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  body {
+	  color: rgba(255, 255, 255, 0.87);
+		background-color: #242424;
+	}
+
+  button {
+    background-color: transparent;
+    border: 2px solid rgba(245, 245, 245, 0.267);
+    border-radius: .4em;
+    width: calc(min(100%, 540px) - 2 * var(--body-padding));
+    display: block;
+    margin-inline: auto;
+    padding: 1em 2em;
+    font-weight: 600;
+    transition: all 0.3s;
+
+    &:hover {
+      cursor: pointer;
+      background-color: rgb(54, 54, 54);
+    }
+  }
+}
+
 body {
   --body-padding: 1rem;
-  height: 100dvh;
+  min-height: 100dvh;
   display: grid;
+	padding-block: var(--body-padding);
 }
 
 header {
@@ -48,6 +96,13 @@ main {
   align-items: center;
   gap: 2rem;
 
+	.info {
+		font-size: .9rem;
+		font-style: italic;
+		text-align: center;
+		margin-bottom: .5rem;
+	}
+
   canvas {
     display: block;
     width: 100%;
@@ -55,20 +110,4 @@ main {
     margin-bottom: 1rem;
   }
 
-  button {
-    background-color: transparent;
-    border: 2px solid rgba(245, 245, 245, 0.267);
-    border-radius: .4em;
-    width: calc(min(100%, 540px) - 2 * var(--body-padding));
-    display: block;
-    margin-inline: auto;
-    padding: 1em 2em;
-    font-weight: 600;
-    transition: all 0.3s;
-
-    &:hover {
-      cursor: pointer;
-      background-color: rgb(54, 54, 54);
-    }
-  }
 }
